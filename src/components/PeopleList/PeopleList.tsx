@@ -45,7 +45,6 @@ export function PeopleList({
 
       {sortedPeople.map(person => (
         <PeopleListItem
-          key={person.id}
           {...person}
         />
       ))}
