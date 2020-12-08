@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { Box, Input } from '@chakra-ui/react';
-import { useState } from 'react';
 
 import { Person } from '../../types';
 
 import { PeopleListItem } from './PeopleListItem';
+import { PeopleListSearch } from './PeopleListSearch';
 
 export interface Props {
   people: Person[];
@@ -28,19 +28,14 @@ export function PeopleList({
   });
 
 
-  function handleChange(event) {
-    setSearchValue(event.target.value);
+  function handleSearch(value) {
+    setSearchValue(value);
   }
 
   return (
     <Box>
-      <Input
-        aria-label="Search"
-        marginY={4}
-        onChange={handleChange}
-        placeholder="Search people"
-        variant="outline"
-        value={searchValue}
+      <PeopleListSearch
+        onSearch={handleSearch}
       />
 
       {sortedPeople.map(person => (
