@@ -7,7 +7,7 @@ export interface Props {
   onSearch: (value: string) => void;
 }
 
-const DEBOUNCE_MS = 3000;
+const DEBOUNCE_MS = 300;
 
 export function PeopleListSearch({
   onSearch,
