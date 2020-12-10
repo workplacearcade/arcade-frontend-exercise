@@ -14,14 +14,11 @@ export function PeopleListSearch({
 }: Props) {
   const [searchValue, setSearchValue] = useState('');
 
-  const debouncedOnChange = useCallback(debounce((value) => {
-    console.log('debouncing');
-    onSearch(value);
-  }, DEBOUNCE_MS), [onSearch]);
+  const handleDebouncedSearch = useCallback(debounce(onSearch, DEBOUNCE_MS), [onSearch]);
 
   function handleChange(event) {
     setSearchValue(event.target.value);
-    debouncedOnChange(event.target.value);
+    handleDebouncedSearch(event.target.value);
   }
 
   return (
