@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import { PeopleList, Props } from '../PeopleList';
 
@@ -24,6 +24,14 @@ describe('PeopleList', () => {
   });
 
   describe('searching', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
     const props = {
       people: [
         {
@@ -47,6 +55,8 @@ describe('PeopleList', () => {
           value: 'FAKE_NAME_2'
         }
       });
+
+      act(() => jest.runAllTimers());
 
       expect(queryByText('FAKE_NAME_1')).toBeNull();
       expect(queryByText('FAKE_NAME_2')).not.toBeNull();
