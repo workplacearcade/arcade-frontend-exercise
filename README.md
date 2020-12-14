@@ -28,6 +28,7 @@ export interface Person {
 The goals are to:
   - [ ] extend the search function to support filtering by `teamName`
   - [ ] identify (and fix) any potential performance issues
+  - [ ] have no errors in the console
 
 
 ## Our Stack
