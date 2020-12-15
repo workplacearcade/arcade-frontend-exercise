@@ -12,12 +12,12 @@ const DEBOUNCE_MS = 300;
 export function PeopleListSearch({
   onSearch,
 }: Props) {
-  const [searchValue, setSearchValue] = useState('');
+  const [value, setValue] = useState('');
 
   const handleDebouncedSearch = useCallback(debounce(onSearch, DEBOUNCE_MS), [onSearch]);
 
   function handleChange(event) {
-    setSearchValue(event.target.value);
+    setValue(event.target.value);
     handleDebouncedSearch(event.target.value);
   }
 
@@ -28,7 +28,7 @@ export function PeopleListSearch({
       onChange={handleChange}
       placeholder="Search people"
       variant="outline"
-      value={searchValue}
+      value={value}
     />
   );
 }
