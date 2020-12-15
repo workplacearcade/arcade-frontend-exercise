@@ -2,6 +2,7 @@
   "name": "arcade-frontend-exercise",
   "version": "1.0.0",
   "author": "Chris Odicho",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
