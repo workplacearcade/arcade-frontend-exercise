@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import { Box, Input } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import { Person } from '../../types';
 
